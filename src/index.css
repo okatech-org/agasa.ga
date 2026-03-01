@@ -1,0 +1,817 @@
+/* ================================================================
+   AGASA Design System — index.css
+   §2-§6 du prompt : Tokens, Typographie, Couleurs, Effets, Animations
+   ================================================================ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── 1. CSS Custom Properties (Light Mode — Default) ── */
+:root {
+  /* Fonts */
+  --font-serif: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-sans: 'DM Sans', 'Segoe UI', system-ui, sans-serif;
+
+  /* Backgrounds */
+  --bg: hsl(220, 20%, 97%);
+  /* #f5f7fa */
+  --bg-card: hsl(0, 0%, 100%);
+  /* #ffffff */
+  --bg-muted: hsl(220, 14%, 95%);
+  /* #f0f2f5 */
+
+  /* Text */
+  --text: hsl(230, 30%, 16%);
+  /* #1a1f36 */
+  --text-muted: hsl(220, 9%, 46%);
+  /* #6b7280 — ratio ≥ 5.5:1 sur bg */
+  --text-on-dark: hsl(215, 25%, 90%);
+  /* #e2e8f0 */
+
+  /* Institutional Colors */
+  --primary: hsl(222, 47%, 18%);
+  /* #17253f — Bleu marine AGASA */
+  --blue: hsl(217, 91%, 60%);
+  /* #3b82f6 */
+  --emerald: hsl(160, 84%, 39%);
+  /* #10b981 */
+  --amber: hsl(38, 92%, 50%);
+  /* #f59e0b */
+  --rose: hsl(350, 89%, 60%);
+  /* #f43f5e */
+  --cyan: hsl(189, 94%, 43%);
+  /* #06b6d4 */
+  --violet: hsl(258, 90%, 66%);
+  /* #8b5cf6 */
+  --teal: hsl(168, 76%, 42%);
+  /* #14b8a6 */
+  --gold: hsl(48, 96%, 53%);
+  /* #eab308 */
+
+  /* Borders & Surfaces */
+  --border: hsl(220, 13%, 91%);
+  /* #e5e7eb */
+  --ring: hsl(217, 91%, 60%);
+  /* = blue, focus ring */
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(26, 39, 54, 0.06);
+  --shadow-md: 0 4px 24px -4px rgba(26, 39, 54, 0.10);
+  --shadow-elegant: 0 10px 40px -10px rgba(26, 39, 54, 0.18);
+  --shadow-glow: 0 8px 32px rgba(16, 185, 129, 0.30);
+
+  /* Neumorphism tokens */
+  --neu-light: rgba(255, 255, 255, 1);
+  --neu-dark: rgba(0, 0, 0, 0.06);
+
+  /* Rendering */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── 2. Dark Mode ── */
+.dark {
+  --bg: hsl(222, 47%, 7%);
+  /* #0b1121 */
+  --bg-card: hsl(222, 40%, 13%);
+  /* #131b2e */
+  --bg-muted: hsl(222, 47%, 9%);
+  /* #111827 */
+
+  --text: hsl(215, 25%, 90%);
+  /* #e2e8f0 */
+  --text-muted: hsl(215, 16%, 65%);
+  /* #94a3b8 — ratio ≥ 4.8:1 sur bg-card sombre */
+  --text-on-dark: hsl(215, 25%, 90%);
+
+  --border: hsl(217, 33%, 17%);
+  /* #1e293b */
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.20);
+  --shadow-md: 0 4px 24px -4px rgba(0, 0, 0, 0.35);
+  --shadow-elegant: 0 10px 40px -10px rgba(0, 0, 0, 0.50);
+  --shadow-glow: 0 8px 32px rgba(16, 185, 129, 0.25);
+
+  --neu-light: rgba(255, 255, 255, 0.04);
+  --neu-dark: rgba(0, 0, 0, 0.25);
+}
+
+/* ── 3. Base Styles ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* ── 4. Typographic Scale (§2.4) ── */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+h4 {
+  font-size: clamp(17px, 2vw, 20px);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 640px;
+  /* 65-75 chars rule */
+}
+
+p.lead {
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+@media (max-width: 767px) {
+  p.lead {
+    font-size: 16px;
+  }
+}
+
+/* ── 5. Layout: Container ── */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (max-width: 639px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
+/* ── 6. Focus Ring (WCAG) ── */
+*:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* ── 7. Links ── */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+/* ── 8. Glassmorphism (§4.3) — Header sticky + modales only ── */
+.glass {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px) saturate(1.8);
+  -webkit-backdrop-filter: blur(16px) saturate(1.8);
+  border-bottom: 1px solid var(--border);
+}
+
+.dark .glass {
+  background: rgba(19, 27, 46, 0.75);
+}
+
+/* ── 9. Neumorphism (§4.2) — Cards only, NEVER forms ── */
+.neu-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow:
+    inset 2px 2px 6px var(--neu-light),
+    inset -2px -2px 6px var(--neu-dark),
+    0 1px 3px var(--neu-dark);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.neu-card:hover {
+  box-shadow: var(--shadow-elegant);
+  transform: translateY(-4px);
+}
+
+/* ── 10. Gradients (§4.4) ── */
+.gradient-agasa {
+  background: linear-gradient(135deg, var(--emerald), var(--blue));
+}
+
+.gradient-hero,
+.hero-gradient {
+  background: linear-gradient(135deg, #0a1628 0%, #112240 40%, #0d3b2e 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--emerald), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-warm {
+  background: linear-gradient(135deg, var(--amber), var(--rose));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── 11. Buttons (§6.1) ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--emerald), var(--blue));
+  box-shadow: var(--shadow-glow);
+  border: none;
+  cursor: pointer;
+  min-height: 48px;
+  line-height: 1;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(16, 185, 129, 0.4);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  min-height: 48px;
+  line-height: 1;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: var(--bg-muted);
+}
+
+.btn-outline-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+  min-height: 48px;
+  line-height: 1;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-dark:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+/* ── 12. Badges (§6.3) ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* ── 13. Icon Container (§6.4) ── */
+.icon-container {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.icon-container:hover,
+.group:hover .icon-container {
+  transform: scale(1.1);
+}
+
+/* ── 14. Overline / Section Label ── */
+.overline {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ── 15. Animations (§5) ── */
+
+/* Keyframes */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(1.5);
+  }
+}
+
+/* Utility classes */
+.animate-fadeInUp {
+  animation: fade-in-up 0.35s ease-out both;
+}
+
+/* Stagger delays */
+.stagger-1 {
+  animation-delay: 0.0s;
+}
+
+.stagger-2 {
+  animation-delay: 0.1s;
+}
+
+.stagger-3 {
+  animation-delay: 0.2s;
+}
+
+.stagger-4 {
+  animation-delay: 0.3s;
+}
+
+/* Pulse dot (badge "Nouveau") */
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--emerald);
+  animation: pulse 2s infinite;
+  flex-shrink: 0;
+}
+
+/* ── 16. Respect prefers-reduced-motion (§5.1) ── */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── 17. Scrollbar styling ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: hsl(217, 33%, 24%);
+}
+
+/* ── 18. Selection ── */
+::selection {
+  background-color: hsl(160, 84%, 39%, 0.25);
+  color: var(--text);
+}
+
+/* ── 19. Topbar ── */
+.topbar {
+  background: var(--primary);
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ── 20. App Card Color Helpers ── */
+.app-card-blue:hover {
+  border-color: var(--blue) !important;
+}
+
+.app-card-blue:hover .app-glow {
+  opacity: 1;
+  background: rgba(59, 130, 246, 0.08);
+}
+
+.app-card-emerald:hover {
+  border-color: var(--emerald) !important;
+}
+
+.app-card-emerald:hover .app-glow {
+  opacity: 1;
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.app-card-amber:hover {
+  border-color: var(--amber) !important;
+}
+
+.app-card-amber:hover .app-glow {
+  opacity: 1;
+  background: rgba(245, 158, 11, 0.08);
+}
+
+.app-card-rose:hover {
+  border-color: var(--rose) !important;
+}
+
+.app-card-rose:hover .app-glow {
+  opacity: 1;
+  background: rgba(244, 63, 94, 0.08);
+}
+
+/* Service Card hover shadows */
+.service-blue:hover {
+  box-shadow: 0 8px 24px -4px rgba(59, 130, 246, 0.18);
+  border-color: var(--blue);
+}
+
+.service-emerald:hover {
+  box-shadow: 0 8px 24px -4px rgba(16, 185, 129, 0.18);
+  border-color: var(--emerald);
+}
+
+.service-violet:hover {
+  box-shadow: 0 8px 24px -4px rgba(139, 92, 246, 0.18);
+  border-color: var(--violet);
+}
+
+.service-amber:hover {
+  box-shadow: 0 8px 24px -4px rgba(245, 158, 11, 0.18);
+  border-color: var(--amber);
+}
+
+.service-cyan:hover {
+  box-shadow: 0 8px 24px -4px rgba(6, 182, 212, 0.18);
+  border-color: var(--cyan);
+}
+
+.service-rose:hover {
+  box-shadow: 0 8px 24px -4px rgba(244, 63, 94, 0.18);
+  border-color: var(--rose);
+}
+
+.service-teal:hover {
+  box-shadow: 0 8px 24px -4px rgba(20, 184, 166, 0.18);
+  border-color: var(--teal);
+}
+
+.service-slate:hover {
+  box-shadow: 0 8px 24px -4px rgba(100, 116, 139, 0.18);
+  border-color: hsl(215, 16%, 47%);
+}
+
+/* Color utility classes for text */
+.color-blue {
+  color: var(--blue);
+}
+
+.color-emerald {
+  color: var(--emerald);
+}
+
+.color-amber {
+  color: var(--amber);
+}
+
+.color-rose {
+  color: var(--rose);
+}
+
+.color-cyan {
+  color: var(--cyan);
+}
+
+.color-violet {
+  color: var(--violet);
+}
+
+.color-teal {
+  color: var(--teal);
+}
+
+.color-slate {
+  color: hsl(215, 16%, 47%);
+}
+
+.color-gold {
+  color: var(--gold);
+}
+
+/* Background color with opacity for badges & icon containers */
+.bg-blue-12 {
+  background: rgba(59, 130, 246, 0.12);
+}
+
+.bg-emerald-12 {
+  background: rgba(16, 185, 129, 0.12);
+}
+
+.bg-amber-12 {
+  background: rgba(245, 158, 11, 0.12);
+}
+
+.bg-rose-12 {
+  background: rgba(244, 63, 94, 0.12);
+}
+
+.bg-cyan-12 {
+  background: rgba(6, 182, 212, 0.12);
+}
+
+.bg-violet-12 {
+  background: rgba(139, 92, 246, 0.12);
+}
+
+.bg-teal-12 {
+  background: rgba(20, 184, 166, 0.12);
+}
+
+.bg-slate-12 {
+  background: rgba(100, 116, 139, 0.12);
+}
+
+.bg-blue-14 {
+  background: rgba(59, 130, 246, 0.14);
+}
+
+.bg-emerald-14 {
+  background: rgba(16, 185, 129, 0.14);
+}
+
+.bg-amber-14 {
+  background: rgba(245, 158, 11, 0.14);
+}
+
+.bg-rose-14 {
+  background: rgba(244, 63, 94, 0.14);
+}
+
+/* News tag helpers */
+.tag-institutionnel {
+  background: rgba(59, 130, 246, 0.10);
+  color: var(--blue);
+}
+
+.tag-alerte {
+  background: rgba(244, 63, 94, 0.10);
+  color: var(--rose);
+}
+
+.tag-reglementation {
+  background: rgba(245, 158, 11, 0.10);
+  color: var(--amber);
+}
+
+/* ══════════════════════════════════════════════
+   21. Semantic Color Utilities (used by pages)
+   ══════════════════════════════════════════════ */
+.text-heading {
+  color: var(--text);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-emerald {
+  color: var(--emerald);
+}
+
+.text-blue {
+  color: var(--blue);
+}
+
+.text-amber {
+  color: var(--amber);
+}
+
+.text-rose {
+  color: var(--rose);
+}
+
+.text-violet {
+  color: var(--violet);
+}
+
+.text-cyan {
+  color: var(--cyan);
+}
+
+.text-teal {
+  color: var(--teal);
+}
+
+.bg-surface {
+  background: var(--bg);
+}
+
+.bg-muted {
+  background: var(--bg-muted);
+}
+
+.border-border {
+  border-color: var(--border);
+}
+
+/* ══════════════════════════════════════════════
+   22. Icon Container Color Variants
+   ══════════════════════════════════════════════ */
+.icon-container-blue {
+  background: rgba(59, 130, 246, 0.12);
+  color: var(--blue);
+}
+
+.icon-container-emerald {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--emerald);
+}
+
+.icon-container-amber {
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--amber);
+}
+
+.icon-container-rose {
+  background: rgba(244, 63, 94, 0.12);
+  color: var(--rose);
+}
+
+.icon-container-cyan {
+  background: rgba(6, 182, 212, 0.12);
+  color: var(--cyan);
+}
+
+.icon-container-violet {
+  background: rgba(139, 92, 246, 0.12);
+  color: var(--violet);
+}
+
+.icon-container-teal {
+  background: rgba(20, 184, 166, 0.12);
+  color: var(--teal);
+}
+
+.icon-container-slate {
+  background: rgba(100, 116, 139, 0.12);
+  color: hsl(215, 16%, 47%);
+}
+
+/* ══════════════════════════════════════════════
+   23. Badge Color Variants
+   ══════════════════════════════════════════════ */
+.badge-blue {
+  background: rgba(59, 130, 246, 0.12);
+  color: var(--blue);
+}
+
+.badge-emerald {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--emerald);
+}
+
+.badge-amber {
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--amber);
+}
+
+.badge-rose {
+  background: rgba(244, 63, 94, 0.12);
+  color: var(--rose);
+}
+
+.badge-cyan {
+  background: rgba(6, 182, 212, 0.12);
+  color: var(--cyan);
+}
+
+.badge-violet {
+  background: rgba(139, 92, 246, 0.12);
+  color: var(--violet);
+}
+
+.badge-teal {
+  background: rgba(20, 184, 166, 0.12);
+  color: var(--teal);
+}
+
+.badge-slate {
+  background: rgba(100, 116, 139, 0.12);
+  color: hsl(215, 16%, 47%);
+}

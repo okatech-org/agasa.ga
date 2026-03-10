@@ -1,6 +1,6 @@
 {
     "hosting": {
-        "site": "agasa-ga",
+        "site": "agasa",
         "public": "dist",
         "ignore": [
             "firebase.json",

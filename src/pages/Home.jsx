@@ -144,8 +144,10 @@ export default function Home() {
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {APPS.map((app, i) => (
-                            <Link
-                                to="/applications"
+                            <a
+                                href={app.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 key={i}
                                 className="neu-card p-0 rounded-2xl flex flex-col group hover:scale-[1.02] transition-transform overflow-hidden"
                             >
@@ -168,11 +170,11 @@ export default function Home() {
                                             <Users size={13} /> {app.users}
                                         </span>
                                         <span className={`text-sm font-medium text-${app.color}-500 flex items-center gap-1 group-hover:gap-2 transition-all`}>
-                                            En savoir plus <ChevronRight size={14} />
+                                            Ouvrir <ExternalLink size={14} />
                                         </span>
                                     </div>
                                 </div>
-                            </Link>
+                            </a>
                         ))}
                     </div>
                 </div>

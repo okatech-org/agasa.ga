@@ -40,6 +40,13 @@ const NAV_LINKS = [
     { label: "Réglementation", to: "/reglementation" },
 ];
 
+const EXTERNAL_APP_LINKS = [
+    { label: "AGASA-Core", url: "https://agasa-core.web.app/" },
+    { label: "AGASA-Inspect", url: "https://agasa-inspect.web.app/" },
+    { label: "AGASA-Pro", url: "https://agasa-pro.web.app/" },
+    { label: "AGASA-Citoyen", url: "https://agasa-citoyen.web.app/" },
+];
+
 /* ══════════════════════════════════════════════
    LAYOUT — Shared by all pages
    ══════════════════════════════════════════════ */
@@ -237,11 +244,16 @@ export default function Layout({ children }) {
                                 Applications
                             </h4>
                             <ul className="space-y-2">
-                                {["AGASA-Core", "AGASA-Pro", "AGASA-Inspect", "AGASA-Citoyen"].map((app) => (
-                                    <li key={app}>
-                                        <Link to="/applications" className="text-sm text-white/60 hover:text-emerald-400 transition-colors flex items-center gap-1.5">
-                                            <ChevronRight size={12} /> {app}
-                                        </Link>
+                                {EXTERNAL_APP_LINKS.map((app) => (
+                                    <li key={app.label}>
+                                        <a
+                                            href={app.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-sm text-white/60 hover:text-emerald-400 transition-colors flex items-center gap-1.5"
+                                        >
+                                            <ChevronRight size={12} /> {app.label}
+                                        </a>
                                     </li>
                                 ))}
                             </ul>

@@ -96,6 +96,14 @@ export default function Applications() {
                                     <Users size={16} />
                                     <span>Destiné aux : <strong className="text-heading">{app.users}</strong></span>
                                 </div>
+                                <a
+                                    href={app.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 btn-primary"
+                                >
+                                    Ouvrir {app.name} <ExternalLink size={16} />
+                                </a>
                             </div>
 
                             {/* Image and Features */}

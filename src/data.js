@@ -74,6 +74,7 @@ export const APPS = [
   {
     name: "AGASA-Core",
     subtitle: "Plateforme Interne Unifiée",
+    url: "https://agasa-core.web.app/",
     desc: "ERP, LIMS, BI et Alertes — le hub central de données de l'écosystème AGASA pour les agents du siège et des 9 provinces.",
     longDesc: "AGASA-Core est le système nerveux de l'écosystème numérique de l'AGASA. Il centralise toutes les données et processus : gestion des agréments, suivi des inspections, résultats de laboratoire (LIMS), intelligence d'affaires (BI) et système d'alertes sanitaires. Accessible depuis n'importe quelle province, il garantit une coordination en temps réel.",
     icon: Monitor,
@@ -93,6 +94,7 @@ export const APPS = [
   {
     name: "AGASA-Pro",
     subtitle: "Portail des Opérateurs Économiques",
+    url: "https://agasa-pro.web.app/",
     desc: "Agrément sanitaire, guichet unique d'importation, police phytosanitaire, analyses — tout en un portail sécurisé.",
     longDesc: "AGASA-Pro est le guichet unique numérique pour tous les opérateurs économiques du Gabon. Importateurs, restaurateurs, transformateurs et distributeurs peuvent gérer l'intégralité de leurs démarches administratives en ligne : demande d'agrément, déclaration d'importation, suivi d'analyses et paiement des redevances.",
     icon: Building2,
@@ -112,6 +114,7 @@ export const APPS = [
   {
     name: "AGASA-Inspect",
     subtitle: "Application Mobile Terrain",
+    url: "https://agasa-inspect.web.app/",
     desc: "Checklists normalisées, PV électroniques, géolocalisation GPS, capture photo et mode hors-ligne pour les inspecteurs.",
     longDesc: "AGASA-Inspect équipe chaque inspecteur terrain d'un outil mobile puissant. Grilles de contrôle normalisées (HACCP, hygiène), procès-verbaux électroniques, capture photo géolocalisée et surtout un mode hors-ligne complet pour les zones sans couverture réseau. Les données se synchronisent automatiquement dès la connexion retrouvée.",
     icon: Search,
@@ -131,6 +134,7 @@ export const APPS = [
   {
     name: "AGASA-Citoyen",
     subtitle: "Application Grand Public",
+    url: "https://agasa-citoyen.web.app/",
     desc: "Scannez le QR Smiley, signalez un problème, consultez la carte des établissements agréés et recevez les alertes.",
     longDesc: "AGASA-Citoyen place le pouvoir entre les mains des Gabonais. En scannant le QR code Smiley affiché dans chaque établissement, les citoyens accèdent instantanément à la note de conformité sanitaire. Ils peuvent signaler un problème en 3 taps, consulter la carte des établissements agréés et recevoir les alertes de rappels produits.",
     icon: Heart,

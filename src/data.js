@@ -72,11 +72,11 @@ export const STATS = [
    ══════════════════════════════════════ */
 export const APPS = [
   {
-    name: "AGASA-Core",
+    name: "AGASA-Admin",
     subtitle: "Plateforme Interne Unifiée",
-    url: "https://agasa-core.web.app/",
+    url: "https://agasa-admin.web.app/",
     desc: "ERP, LIMS, BI et Alertes — le hub central de données de l'écosystème AGASA pour les agents du siège et des 9 provinces.",
-    longDesc: "AGASA-Core est le système nerveux de l'écosystème numérique de l'AGASA. Il centralise toutes les données et processus : gestion des agréments, suivi des inspections, résultats de laboratoire (LIMS), intelligence d'affaires (BI) et système d'alertes sanitaires. Accessible depuis n'importe quelle province, il garantit une coordination en temps réel.",
+    longDesc: "AGASA-Admin est le système nerveux de l'écosystème numérique de l'AGASA. Il centralise toutes les données et processus : gestion des agréments, suivi des inspections, résultats de laboratoire (LIMS), intelligence d'affaires (BI) et système d'alertes sanitaires. Accessible depuis n'importe quelle province, il garantit une coordination en temps réel.",
     icon: Monitor,
     image: appCoreImg,
     color: "blue",

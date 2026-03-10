@@ -37,7 +37,7 @@ export default function Applications() {
                     </h1>
                     <p className="text-lg text-white/60 max-w-2xl">
                         4 applications interconnectées, un écosystème unifié. Chaque acteur de la
-                        chaîne alimentaire dispose de son outil dédié, relié au hub central AGASA-Core.
+                        chaîne alimentaire dispose de son outil dédié, relié au hub central AGASA-Admin.
                     </p>
                 </div>
             </section>
@@ -50,7 +50,7 @@ export default function Applications() {
                             Architecture de l'Écosystème
                         </h2>
                         <p className="text-muted mt-3 max-w-2xl mx-auto">
-                            AGASA-Core centralise toutes les données. Les 3 applications métier y accèdent
+                            AGASA-Admin centralise toutes les données. Les 3 applications métier y accèdent
                             en temps réel pour garantir cohérence et traçabilité.
                         </p>
                     </div>

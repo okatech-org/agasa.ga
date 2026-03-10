@@ -139,7 +139,7 @@ export default function Home() {
                         </h2>
                         <p className="text-muted mt-4 max-w-2xl mx-auto">
                             Chaque catégorie d'utilisateur dispose d'un point d'entrée unique vers le
-                            système AGASA. Toutes les données transitent par AGASA-Core.
+                            système AGASA. Toutes les données transitent par AGASA-Admin.
                         </p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

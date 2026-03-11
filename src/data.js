@@ -114,7 +114,7 @@ export const APPS = [
   {
     name: "AGASA-Inspect",
     subtitle: "Application Mobile Terrain",
-    url: "https://agasa-inspect.web.app/",
+    url: "https://agasa-inspects.web.app/",
     desc: "Checklists normalisées, PV électroniques, géolocalisation GPS, capture photo et mode hors-ligne pour les inspecteurs.",
     longDesc: "AGASA-Inspect équipe chaque inspecteur terrain d'un outil mobile puissant. Grilles de contrôle normalisées (HACCP, hygiène), procès-verbaux électroniques, capture photo géolocalisée et surtout un mode hors-ligne complet pour les zones sans couverture réseau. Les données se synchronisent automatiquement dès la connexion retrouvée.",
     icon: Search,

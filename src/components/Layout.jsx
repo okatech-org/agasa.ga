@@ -42,7 +42,7 @@ const NAV_LINKS = [
 
 const EXTERNAL_APP_LINKS = [
     { label: "AGASA-Admin", url: "https://agasa-admin.web.app/" },
-    { label: "AGASA-Inspect", url: "https://agasa-inspect.web.app/" },
+    { label: "AGASA-Inspect", url: "https://agasa-inspects.web.app/" },
     { label: "AGASA-Pro", url: "https://agasa-pro.web.app/" },
     { label: "AGASA-Citoyen", url: "https://agasa-citoyen.web.app/" },
 ];
